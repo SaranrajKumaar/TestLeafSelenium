@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Browser",
+            "request": "launch",
+            "mainClass": "Week1.Day2.HomeAssignmentDay2.Browser",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "FibonacciSeries",
+            "request": "launch",
+            "mainClass": "Week1.Day2.HomeAssignmentDay2.FibonacciSeries",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "HelloTestLeaf",
+            "request": "launch",
+            "mainClass": "Week1.Day1.HelloTestLeaf",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "FindOddNumbers",
+            "request": "launch",
+            "mainClass": "Week1.Day2.FindOddNumbers",
+            "projectName": "seleniumtestleaf"
+        }
+    ]
+}
