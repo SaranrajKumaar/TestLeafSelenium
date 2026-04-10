@@ -8,9 +8,7 @@ public class JsonReader {
 
     public static JSONObject getTestData() throws Exception {
 
-        InputStream is = JsonReader.class
-                .getClassLoader()
-                .getResourceAsStream("selectclass-testdata.json");
+        InputStream is = JsonReader.class.getClassLoader().getResourceAsStream("selectclass-testdata.json");
 
         if (is == null) {
             throw new RuntimeException("JSON file not found!");
