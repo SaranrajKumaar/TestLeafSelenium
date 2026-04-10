@@ -63,4 +63,4 @@ Notes:
 - JSON keys used by the class include `username`, `password`, `accountName`, `description`, `numberEmployees`, `siteName`, `industry`, `ownership`, `sourceIndex`, `state`, and `campaign`.
 - The duplicate handling appends `System.currentTimeMillis()` to ensure a unique account name when the application reports duplicates.
 
-If you'd like, I can also add inline comments to the source file itself or include a sample `selectclass-testdata.json` example in the README.
+If you'd like, I can also add inline comments to the source file itself or include a sample `selectclass-testdata.json` example in the README..
