@@ -39,3 +39,28 @@ Notes for Day 2:
 - Source files are under `src/main/java/Week1` and the HomeAssignment subfolders as shown in the repository tree.
 
 If you want, I can also open each source file and add brief inline comments or more precise explanations extracted from the actual code. Would you like me to do that next?
+
+## Week 2 (Week2/day2)
+
+- SelectClass.java: A Selenium end-to-end example that reads test data, opens the LeafTaps application, fills the Create Account form, handles a duplicate account case, and verifies the created account name.
+
+Step-by-step explanation for [seleniumtestleaf/src/main/java/Week2/day2/SelectClass.java](seleniumtestleaf/src/main/java/Week2/day2/SelectClass.java#L1):
+
+1. **Load test data:** Uses `JsonReader.getTestData()` to read JSON test data (credentials and form values) from `src/main/resources/selectclass-testdata.json`.
+2. **Browser setup:** Creates `ChromeOptions` with `--guest` and starts `ChromeDriver`.
+3. **Open application:** Navigates to `http://leaftaps.com/opentaps/control/main` and maximizes the window.
+4. **Login:** Finds `#username` and `#password` fields and submits the login button (`.decorativeSubmit`), then clicks the `CRM/SFA` link.
+5. **Navigate to Create Account:** Clicks `Accounts` → `Create Account` to open the account creation form.
+6. **Fill form fields:** Reads values from JSON and fills fields:
+	- `accountName`, `description`, `numberEmployees`, `officeSiteName` using `sendKeys`.
+	- Dropdowns handled with `new Select(...)`: `industry` (`selectByValue`), `ownership` (`selectByVisibleText`), `dataSourceId` (`selectByIndex`), `initialTeamPartyId` (`selectByValue`), `marketingCampaignId` (`selectByVisibleText`).
+7. **Submit form:** Clicks the submit input to save the account.
+8. **Handle duplicates:** Waits up to 10s for a message containing `Duplicates found:`. If found, it appends a timestamp to the account name, clears the `accountName` field, re-submits, and marks that a duplicate was handled.
+9. **Verify creation:** Waits for the account display text, extracts the name (removing the `(ID)` part), compares it to the expected name (adjusted if duplicate was handled), and prints success or mismatch messages.
+10. **Teardown:** Calls `driver.quit()` to close the browser and end the session.
+
+Notes:
+- JSON keys used by the class include `username`, `password`, `accountName`, `description`, `numberEmployees`, `siteName`, `industry`, `ownership`, `sourceIndex`, `state`, and `campaign`.
+- The duplicate handling appends `System.currentTimeMillis()` to ensure a unique account name when the application reports duplicates.
+
+If you'd like, I can also add inline comments to the source file itself or include a sample `selectclass-testdata.json` example in the README..
