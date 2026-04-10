@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SelectClass",
+            "request": "launch",
+            "mainClass": "Week2.day2.SelectClass",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "LaunchBrowser",
+            "request": "launch",
+            "mainClass": "Week2.Day1.LaunchBrowser",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
             "name": "Browser",
             "request": "launch",
             "mainClass": "Week1.Day2.HomeAssignmentDay2.Browser",
