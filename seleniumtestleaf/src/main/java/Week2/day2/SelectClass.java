@@ -107,10 +107,11 @@ public class SelectClass {
 
         // Decide expected name
         if (duplicateHandled) {
+
             expectedName = newName;
         }
 
-        // Get actual name from UI
+        // Get actual name from
         WebElement accountText = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("(//span[@class=\"tabletext\"])[3]")));
@@ -125,7 +126,8 @@ public class SelectClass {
 
         // Validate
         if (actualName.equals(expectedName)) {
-            System.out.println("Account created successfully!");
+
+            System.out.println("Account created successfully!.");
         } else {
             System.out.println("Account name mismatch!");
         }
