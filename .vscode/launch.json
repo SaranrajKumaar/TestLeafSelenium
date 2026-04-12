@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestBrowser",
+            "request": "launch",
+            "mainClass": "Week3.Day2.TestBrowser",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "FindDup",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.FindDup",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
             "name": "SelectClass",
             "request": "launch",
             "mainClass": "Week2.day2.SelectClass",
