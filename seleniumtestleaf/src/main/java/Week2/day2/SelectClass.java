@@ -1,50 +1,44 @@
 package Week2.day2;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.Select;
 
-import utils.JsonReader;
-import org.json.JSONObject;
+import utils.BaseClass;
 
-public class SelectClass {
+public class SelectClass extends BaseClass {
+
     public static void main(String[] args) throws Exception {
 
-        JSONObject object = JsonReader.getTestData();
+        SelectClass test = new SelectClass();
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--guest");
+        test.loadTestData("selectclass-testdata.json");
+        test.launchBrowser();
+        test.login();
 
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("http://leaftaps.com/opentaps/control/main");
-        driver.manage().window().maximize();
+        test.navigateToCreateAccount();
+        test.fillForm();
+        test.handleDuplicateAndSubmit();
+        test.validateAccount();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        test.closeBrowser();
+    }
 
-        // ================= LOGIN =================
-        driver.findElement(By.id("username"))
-                .sendKeys(object.getString("username"));
+    String expectedName;
+    String newName = "";
+    boolean duplicateHandled = false;
 
-        driver.findElement(By.id("password"))
-                .sendKeys(object.getString("password"));
-
-        driver.findElement(By.className("decorativeSubmit")).click();
-
-        driver.findElement(By.linkText("CRM/SFA")).click();
-
-        // ================= NAVIGATION =================
+    // ================= NAVIGATION =================
+    public void navigateToCreateAccount() {
         driver.findElement(By.linkText("Accounts")).click();
         driver.findElement(By.linkText("Create Account")).click();
+    }
 
-        // ================= FORM DATA =================
-        String expectedName = object.getString("accountName");
+    // ================= FORM =================
+    public void fillForm() {
+
+        expectedName = object.getString("accountName");
 
         driver.findElement(By.id("accountName")).sendKeys(expectedName);
 
@@ -71,18 +65,16 @@ public class SelectClass {
 
         new Select(driver.findElement(By.id("marketingCampaignId")))
                 .selectByVisibleText(object.getString("campaign"));
+    }
 
-        // ================= SUBMIT =================
+    // ================= SUBMIT + DUPLICATE =================
+    public void handleDuplicateAndSubmit() {
+
         driver.findElement(By.xpath("//input[@type='submit']")).click();
 
-        boolean duplicateHandled = false;
-        String newName = "";
-
         try {
-            // Check duplicate message
-            WebElement message = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//span[contains(text(),'Duplicates found:')]")));
+            WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//span[contains(text(),'Duplicates found:')]")));
 
             if (message.isDisplayed()) {
 
@@ -92,9 +84,9 @@ public class SelectClass {
 
                 newName = expectedName + "_" + System.currentTimeMillis();
 
-                WebElement accountNameField = driver.findElement(By.id("accountName"));
-                accountNameField.clear();
-                accountNameField.sendKeys(newName);
+                WebElement accountField = driver.findElement(By.id("accountName"));
+                accountField.clear();
+                accountField.sendKeys(newName);
 
                 driver.findElement(By.xpath("//input[@type='submit']")).click();
             }
@@ -102,37 +94,28 @@ public class SelectClass {
         } catch (Exception e) {
             System.out.println("No duplicate found");
         }
+    }
 
-        // ================= ASSERTION =================
+    // ================= VALIDATION =================
+    public void validateAccount() {
 
-        // Decide expected name
         if (duplicateHandled) {
-
             expectedName = newName;
         }
 
-        // Get actual name from
-        WebElement accountText = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("(//span[@class=\"tabletext\"])[3]")));
+        WebElement accountText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("(//span[@class='tabletext'])[3]")));
 
         String actualText = accountText.getText();
-
-        // Remove (ID) part
         String actualName = actualText.split("\\(")[0].trim();
 
         System.out.println("Expected: " + expectedName);
         System.out.println("Actual: " + actualName);
 
-        // Validate
         if (actualName.equals(expectedName)) {
-
-            System.out.println("Account created successfully!.");
+            System.out.println("Account created successfully!");
         } else {
             System.out.println("Account name mismatch!");
         }
-
-        // ================= CLOSE =================
-        driver.quit();
     }
 }
