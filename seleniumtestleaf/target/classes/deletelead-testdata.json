@@ -1,0 +1,14 @@
+{
+  "username": "Demosalesmanager",
+  "password": "crmsfa",
+  "companyName":"saran test leaf",
+  "firstName":"tester",
+  "lastName":"automation",
+  "phoneNumber":"1234567890",
+  "department":"testing",
+  "email":"Tester@gmail.com",
+  "state":"New York",
+  "oldDescription":"This is a test lead for deletion",
+  "newDescription":"This lead has been deleted"
+
+}

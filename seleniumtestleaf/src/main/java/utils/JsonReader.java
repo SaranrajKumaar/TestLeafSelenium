@@ -6,12 +6,12 @@ import java.nio.charset.StandardCharsets;
 
 public class JsonReader {
 
-    public static JSONObject getTestData() throws Exception {
+    public static JSONObject getTestData(String name) throws Exception {
 
-        InputStream is = JsonReader.class.getClassLoader().getResourceAsStream("selectclass-testdata.json");
+        InputStream is = JsonReader.class.getClassLoader().getResourceAsStream(name);
 
         if (is == null) {
-            throw new RuntimeException("JSON file not found!");
+            throw new RuntimeException("JSON file not found!" +name);
         }
 
         String content = new String(is.readAllBytes(), StandardCharsets.UTF_8);

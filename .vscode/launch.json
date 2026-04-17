@@ -6,6 +6,83 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ButtonsSingleFile",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.ButtonsSingleFile",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "PalindromeNumber",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.PalindromeNumber",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "RadioButtonTasks",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.RadioButtonTasks",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "RadioButton",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.RadioButton",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "DeleteLeads",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.DeleteLeads",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "Checkboxes",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.Checkboxes",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "Checboxes",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.Checboxes",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "FindMissingElement",
+            "request": "launch",
+            "mainClass": "Week3.Day1.HomeAssignment.FindMissingElement",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "ReverseString",
+            "request": "launch",
+            "mainClass": "Week3.Day2.HomeAssignment.reverseOddwords.ReverseString",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "ReverseOddWords",
+            "request": "launch",
+            "mainClass": "Week3.Day2.HomeAssignment.reverseOddwords.ReverseOddWords",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "RemoveDuplicateWords",
+            "request": "launch",
+            "mainClass": "Week3.Day2.HomeAssignment.removeDuplicate.RemoveDuplicateWords",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
             "name": "TestBrowser",
             "request": "launch",
             "mainClass": "Week3.Day2.TestBrowser",
