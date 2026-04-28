@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BigBasketApp",
+            "request": "launch",
+            "mainClass": "Week5.day2.BigBasketApp",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "ActionClass",
+            "request": "launch",
+            "mainClass": "Week5.day2.ActionClass",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
             "name": "ButtonsSingleFile",
             "request": "launch",
             "mainClass": "Week3.Day1.HomeAssignment.ButtonsSingleFile",
