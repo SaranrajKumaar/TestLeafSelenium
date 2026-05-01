@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MergeContacts",
+            "request": "launch",
+            "mainClass": "Week5.day2.MergeContacts",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "SalesForce",
+            "request": "launch",
+            "mainClass": "Week5.day2.sales.SalesForce",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "FinanceYahoo",
+            "request": "launch",
+            "mainClass": "Week5.day2.windowhandles.FinanceYahoo",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "Frames",
+            "request": "launch",
+            "mainClass": "Week5.day2.Frames",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
+            "name": "SnapDeal",
+            "request": "launch",
+            "mainClass": "Week5.day2.SnapDeal",
+            "projectName": "seleniumtestleaf"
+        },
+        {
+            "type": "java",
             "name": "BigBasketApp",
             "request": "launch",
             "mainClass": "Week5.day2.BigBasketApp",

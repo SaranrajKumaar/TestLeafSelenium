@@ -1,13 +1,14 @@
 package Week5.day2;
 
-import static org.testng.Assert.assertTrue;
-
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.testng.Assert.assertTrue;
 
 public class BigBasketApp {
 
@@ -79,6 +81,8 @@ public class BigBasketApp {
                             break;
                     }
 
+                }
+
                     // Get price
                     String price = product.findElement(By.xpath(".//span[contains(@class,'hpkXHR')]")).getText();
                     System.out.println("Price: " + price);
@@ -94,17 +98,17 @@ public class BigBasketApp {
                     assertTrue(message.equalsIgnoreCase("An item has been added to your basket successfully"));
 
 
-                    TakesScreenshot ts =(TaskesScreenshot) driver;
-                    File src =ts.getScreenshotAs(OutputType.File);
+                    TakesScreenshot ts =(TakesScreenshot) driver;
+                    File src =ts.getScreenshotAs(OutputType.FILE);
 
                     File path = new File("./screenshot/bigbasket.png");
-                    FileUtlis.copyFile(src,path);
+                    FileUtils.copyFile(src,path);
                     break;
                 }
             }
         }
 
-        driver.quit();
+  
 
 
     }
